@@ -1,0 +1,27 @@
+{% extends 'gl\base.html' %}
+{% block content %}
+
+<table class="table" border = 1 bordercolor="black">
+	<thead>
+		<tr>
+			<th><h2>Immt  </h2></th>
+			<th><h2>Modelle  </h2></th>
+			<th><h2>Marque  </h2></th>
+			<th><h2> Couleur </th></h2>
+			<th><h2> Disponible </th></h2>
+		</tr>
+	</thead>
+	<tbody>
+		{% for voiture in voitures %}
+		<tr>
+			<td><h2>{{voiture.immt }}</h2></td>
+			<td><h2>{{voiture.Modelle }}</h2></td>
+			<td><h2>{{voiture.Marque }}</h2></td>
+			<td><h2>{{voiture.Couleur }}</h2></td>
+			<td><h2>{{voiture.disponible }}</h2></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	
+</table>
+{% endblock  %}

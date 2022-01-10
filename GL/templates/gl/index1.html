@@ -1,0 +1,27 @@
+{% extends 'gl\base.html' %}
+{% block content %}
+
+<table class="table" border = 1 bordercolor="black">
+	<thead>
+		<tr>
+			<th><h2>NumClient  </h2></th>
+			<th><h2>NomPrenom  </h2></th>
+			<th><h2>NPermis  </h2></th>
+			<th><h2> Adresse </th></h2>
+			<th><h2> Telephon </th></h2>
+		</tr>
+	</thead>
+	<tbody>
+		{% for client in clients %}
+		<tr>
+			<td><h2>{{client.Numcl }}</h2></td>
+			<td><h2>{{client.Nom_Prenom }}</h2></td>
+			<td><h2>{{client.Numero_Permis }}</h2></td>
+			<td><h2>{{client.Adresse }}</h2></td>
+			<td><h2>{{client.Telephon }}</h2></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	
+</table>
+{% endblock  %}
