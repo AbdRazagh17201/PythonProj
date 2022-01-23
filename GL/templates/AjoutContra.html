@@ -1,0 +1,41 @@
+<header style="background-color: aqua;">
+	<Marquee ><h1 style="color: black;">Bienvenue ! </h1></marquee></header>
+	<div style=" display: grid; color: cadetblue; font-size: larger;">
+<h1>Contra Management </h1>
+<form method = "POST" class = "post-form">
+	<fieldset><legend>Contra informations</legend>
+{% csrf_token %}
+{{ form1.as_p }}</fieldset>
+<button type = "submit" class = "save btn">Valider</button>
+</form>
+</div>
+<button type = "submit" class = "save btn"><a href="index">Sortir</a></button>
+{% comment %} <table class="table" border = 1 bordercolor="black" width = "600" style = "border-collapse: collapse;">
+	<thead>
+		<tr>
+			<th><h2>NumContr  </h2></th>
+			<th><h2>DateContr  </h2></th>
+			<th><h2> DateDeb </th></h2>
+			<th><h2> DateFin </th></h2>
+			<th><h2> voiture </th></h2>
+			<th><h2> client </th></h2>
+			<th><h2> Km_Parcours </th></h2>
+			<th><h2> Tarif_Par_jour </th></h2>
+		</tr>
+	</thead>
+	<tbody>
+		{% for contra in datacontra %}
+		<tr>
+			<td><h2>{{contra.NumContr }}</h2></td>
+			<td><h2>{{contra.DateContr }}</h2></td>
+			<td><h2>{{contra.DateDeb }}</h2></td>
+			<td><h2>{{contra.DateFin }}</h2></td>
+			<td><h2>{{contra.voiture }}</h2></td>
+			<td><h2>{{contra.client }}</h2></td>
+			<td><h2>{{contra.Km_Parcours }}</h2></td>
+			<td><h2>{{contra.Tarif_Par_jour }}</h2></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	
+</table> {% endcomment %}

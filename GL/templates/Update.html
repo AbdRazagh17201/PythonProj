@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GL</title>
+	
+</head>
+
+<body style=" background-color: ;  font-size: larger" >
+	<header style="background-color: aqua;">
+<Marquee ><h1 style="color: black;">Bienvenue ! </h1></marquee></header>
+<div style=" display:grid ; color: cadetblue; font-size: larger;">
+<h1>Update Car </h1>
+<!-- {{form}} -->
+ <form enctype = "multipart/form-data" method = "post">
+	<fieldset><legend>Voiture informations</legend>
+        {% csrf_token %}
+        {{ form.as_p }}
+<img src="{{voitures.photo.url}}" alt=""></fieldset> 
+<button type = "submit" class = "btn btn-primary">Update</button>
+</form> 
+</div>
+
+</body>
+</html>

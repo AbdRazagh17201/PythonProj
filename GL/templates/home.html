@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GL</title>
+</head>
+{% load static %}
+<body background = "{% static 'images/bg_3.jpg' %}"  >
+ <center>
+<h1><font color="red">Agence de location des voitures <font color="brown"></font></font><br/></h1>
+<br/>
+
+<h2>
+<font color="red">Login d'administration:</font>
+</h2>
+<form name="form" method="get" action="index">
+<table>
+{% csrf_token %}
+	{% comment %} {% if user.id in 1 %} {% endcomment %}
+<tr><td><h3>Username:</h3>
+</td><td><input type="text" name="username" placeholder="Entrer ton nom" height="30" width="100">
+</td></tr>
+<tr><td><h3>Password:</h3></td><td>
+<input type="password" placeholder="Entrer ton passwd" height="30" width="100">
+</td></tr>
+<tr><td></td>
+
+<td><button type="submit" class = "save btn btn-default">Entrer</button></td></tr>
+ {% comment %} {% endif %} {% endcomment %}
+</table>
+</form>
+</center> 
+
+</body>
+</html>

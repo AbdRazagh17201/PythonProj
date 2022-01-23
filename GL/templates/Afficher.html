@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GL</title>
+</head>
+
+<body style=" background-color: " >
+<header style="background-color: aqua;">
+<Marquee ><h1 style="color: black;">Bienvenue ! </h1></marquee></header>
+ {% load static %}
+ <img src="{% static 'images/bg_3.jpg' %}" width = "500">
+ <img src="{% static 'images/bg_1.jpg' %}" width = "400">
+ <img src="{% static 'images/bg_2.jpg' %}" width = "400">
+ {% comment %} <img src="{% static 'images/car-1.jpg' %}" width = "420">
+ <img src="{% static 'images/car-2.jpg' %}" width = "500">
+ <img src="{% static 'images/car-3.jpg' %}" width = "400"> {% endcomment %}
+ 
+<div style=" display: grid; font-size: larger;">
+<h1 style="color: black;"><i><center> Voila Nos Voitures </center></i></h1>
+<table class="table" border = 1 bordercolor="black" width = "600" style = "border-collapse: collapse; width:100%; background-color: cadetblue;">
+	<thead>
+		<tr>
+		
+			<th><h2>Immt  </h2></th>
+			<th><h2> Modelle </th></h2>
+			<th><h2>Marque</h2></th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for element in voitures %}
+		<tr>
+			<td><h2><a href="{% url 'GL:details' element.id %}">{{element.immt}}</a></h2></td>
+			<td><h2> {{element.Modelle }}</h2></td>
+			<td><h2>{{element.Marque }}</h2></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	
+</table>
+</div>
+<button type = "submit" class ="btn btn-default"><a href="index">  Sortir </a></button>
+		
+	 	
+<hr style = "width:100% ;height: 20px; color: green">
+<div style=" display: grid; color: cadetblue; font-size: larger;">
+	<h1 style="color: black;"><i><center> La liste de nos Clients ! </center></i></h1>
+			
+<table class="table" border = 1 bordercolor="black" width = "600" style = "border-collapse: collapse; width: 100%;">
+	<thead>
+		<tr>
+			<th><h2>user  </h2></th>
+			<th><h2>NPermis  </h2></th>
+			<th><h2> Adresse </th></h2>
+			<th><h2> Telephon </th></h2>
+		</tr>
+	</thead>
+	<tbody>
+		{% for client in dataclients %}
+		<tr>
+			<td><h2>{{client.user }}</h2></td>
+			<td><h2>{{client.Numero_Permis }}</h2></td>
+			<td><h2>{{client.Adresse }}</h2></td>
+			<td><h2>{{client.Telephon }}</h2></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	
+</table>
+</div>
+<button type = "submit" class ="btn-default"><a href="index">  Sortir </a></button>
+<hr style = "width: 1340px ;height: 20px; color: green">
+<div style=" display: grid; color: cadetblue; font-size: larger;">
+	<h1 style="color: black;"><i><center> La liste de Locations ! </center></i></h1>
+<table class="table" border = 1 bordercolor="black" width = "600" style = "border-collapse: collapse;width: 100%;">
+	<thead>
+		<tr>
+			<th><h2>NumLocat  </h2></th>
+			<th><h2>DateLocat  </h2></th>
+			<th><h2> dureeLocat </th></h2>
+			<th><h2> Locataire </th></h2>
+			<th><h2> voiture </th></h2>
+		</tr>
+	</thead>
+	<tbody>
+		{% for locate in datalocate %}
+		<tr>
+			<td><h2>{{locate.NumLocat }}</h2></td>
+			<td><h2>{{locate.DateLocat }}</h2></td>
+			<td><h2>{{locate.dureeLocat }}</h2></td>
+			<td><h2>{{locate.Locataire }}</h2></td>
+			<td><h2>{{locate.voiture }}</h2></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	
+</table>
+</div>
+<button type = "submit" class ="btn-primary"><a href="index">  Sortir </a></button>
+<hr style = "width: 1340px ;height: 20px; color: green">
+<div style=" display: grid; color: cadetblue; font-size: larger;">
+	<h1 style="color: black;"><i><center> La liste des Contrats !</center></i></h1>
+<table class="table" border = 1 bordercolor="black" width = "600" style = "border-collapse: collapse; width: 100%;">
+	<thead>
+		<tr>
+			<th><h2>NumContr  </h2></th>
+			<th><h2>DateContr  </h2></th>
+			<th><h2> DateDeb </th></h2>
+			<th><h2> DateFin </th></h2>
+			<th><h2> voiture </th></h2>
+			<th><h2> client </th></h2>
+			<th><h2> Km_Parcours </th></h2>
+			<th><h2> Tarif_Par_jour </th></h2>
+		</tr>
+	</thead>
+	<tbody>
+		{% for contra in datacontra %}
+		<tr>
+			<td><h2>{{contra.NumContr }}</h2></td>
+			<td><h2>{{contra.DateContr }}</h2></td>
+			<td><h2>{{contra.DateDeb }}</h2></td>
+			<td><h2>{{contra.DateFin }}</h2></td>
+			<td><h2>{{contra.voiture }}</h2></td>
+			<td><h2>{{contra.client }}</h2></td>
+			<td><h2>{{contra.Km_Parcours }}</h2></td>
+			<td><h2>{{contra.Tarif_Par_jour }}</h2></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	
+</table>
+</div>
+<button type = "submit" class ="btn-primary"><a href="index">  Sortir </a></button>
+</body>
+</html>

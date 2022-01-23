@@ -1,0 +1,35 @@
+<header style="background-color: aqua;">
+	<Marquee ><h1 style="color: black;">Bienvenue ! </h1></marquee></header>
+	<div style=" display: grid; color: cadetblue; font-size: larger;">
+<h1>Client Management </h1>
+<form method = "POST" class = "post-form">
+	<fieldset><legend>Client informations</legend>
+{% csrf_token %}
+{{ form1.as_p }}</fieldset>
+<button type = "submit" class = "save btn">Valider</button>
+</form>
+	</div>
+	</div>
+	<button type = "submit" class = "save btn"><a href="index">Sortir</a></button>
+
+<!-- <table class="table" border = 1 bordercolor="black" width = "600" style = "border-collapse: collapse;">
+	<thead>
+		<tr>
+			<th><h2>user  </h2></th>
+			<th><h2>NPermis  </h2></th>
+			<th><h2> Adresse </th></h2>
+			<th><h2> Telephon </th></h2>
+		</tr>
+	</thead>
+	<tbody>
+		{% for client in dataclients %}
+		<tr>
+			<td><h2>{{client.user }}</h2></td>
+			<td><h2>{{client.Numero_Permis }}</h2></td>
+			<td><h2>{{client.Adresse }}</h2></td>
+			<td><h2>{{client.Telephon }}</h2></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	
+</table> -->

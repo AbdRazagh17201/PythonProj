@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+        <header style="background-color: rgb(22, 231, 196);">
+        <h1><i>Welcome <U>{{user.username}} </U> What do you want ?</i></h1>
+        </header><fieldset style="background-color: snow; width: 50%;">
+            <legend  style="font-size: 30; color: rgb(48, 175, 165);">Cliquer sur votre choix</legend>
+        <h1>AjoutVoitures</h1>
+            <button ><a href="AV" class="btn btn-succes">New car</a> </button>
+        <h1>AjoutClients</h1>
+         <button><a href="AC" class="btn btn-succes">New client</a> </button>
+        <h1>AjoutLocation</h1>
+        <button> <a href="AL" class="btn btn-succes">Add Locat</a> </button>
+        <h1>AjoutContras</h1>
+        <button> <a href="ACon" class="btn btn-succes">Add Contra </a></button>
+        </div>
+        </fieldset>
+{% endblock  %}
