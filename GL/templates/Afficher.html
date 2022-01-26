@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>GL</title>
-</head>
-
-<body style=" background-color: " >
-<header style="background-color: aqua;">
-<Marquee ><h1 style="color: black;">Bienvenue ! </h1></marquee></header>
- {% load static %}
+{% extends 'base.html' %}
+{% block body %} 
+{% comment %} <header style="background-color: aqua;">
+<Marquee ><h1 style="color: black;">Bienvenue ! </h1></marquee></header> {% endcomment %}
+ {% comment %} {% load static %}
  <img src="{% static 'images/bg_3.jpg' %}" width = "500">
  <img src="{% static 'images/bg_1.jpg' %}" width = "400">
  <img src="{% static 'images/bg_2.jpg' %}" width = "400">
- {% comment %} <img src="{% static 'images/car-1.jpg' %}" width = "420">
+ <img src="{% static 'images/car-1.jpg' %}" width = "420">
  <img src="{% static 'images/car-2.jpg' %}" width = "500">
  <img src="{% static 'images/car-3.jpg' %}" width = "400"> {% endcomment %}
  
@@ -40,7 +33,6 @@
 	
 </table>
 </div>
-<button type = "submit" class ="btn btn-default"><a href="index">  Sortir </a></button>
 		
 	 	
 <hr style = "width:100% ;height: 20px; color: green">
@@ -69,7 +61,6 @@
 	
 </table>
 </div>
-<button type = "submit" class ="btn-default"><a href="index">  Sortir </a></button>
 <hr style = "width: 1340px ;height: 20px; color: green">
 <div style=" display: grid; color: cadetblue; font-size: larger;">
 	<h1 style="color: black;"><i><center> La liste de Locations ! </center></i></h1>
@@ -97,7 +88,6 @@
 	
 </table>
 </div>
-<button type = "submit" class ="btn-primary"><a href="index">  Sortir </a></button>
 <hr style = "width: 1340px ;height: 20px; color: green">
 <div style=" display: grid; color: cadetblue; font-size: larger;">
 	<h1 style="color: black;"><i><center> La liste des Contrats !</center></i></h1>
@@ -131,6 +121,6 @@
 	
 </table>
 </div>
-<button type = "submit" class ="btn-primary"><a href="index">  Sortir </a></button>
 </body>
 </html>
+{% endblock body %}

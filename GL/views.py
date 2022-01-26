@@ -1,6 +1,8 @@
+from multiprocessing import context
 from django import template
 from django.core.checks import messages
 from django.db.models.base import Model
+from django.db.models import Q
 from django.shortcuts import render , redirect
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required 
@@ -9,6 +11,7 @@ from django.template import loader
 from django.http import HttpResponse ,HttpResponseRedirect
 from .models import Client, Voiture
 from .formulaire import *
+
 @login_required
 def AjoutVoi(request):
     if request.method == "POST":
@@ -121,8 +124,21 @@ def details(request,voiture_id):
 
 @login_required  
 def search(request):
-    search = request.Get.get('search')
-    return render(request , 'search.html',{'search':search})
+    search = request.GET.get('search')
+    voitures = Voiture.objects.filter(Q(immt__icontains=search) |
+                                     Q(Modelle__icontains =search) |
+                                     Q(Marque__icontains =search)  |
+                                     Q(Couleur__icontains =search) |
+                                     Q(photo__icontains=search) |
+                                     Q(disponible__icontains =search))
+    voitures_number = voitures.count()
+    message = f'Il y a {voitures_number} Voitures :'
+    context = { 
+        'voitures': voitures,
+        'message': message,
+
+    }
+    return render(request , 'search.html',context)
 
 @login_required
 def Ajouter(request):

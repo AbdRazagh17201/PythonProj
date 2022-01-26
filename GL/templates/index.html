@@ -1,93 +1,18 @@
-<!doctype html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block body %}
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Gestion De Location</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700|Playfair+Display:400,700,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Changa+One|Montserrat:100,100i,200,200i,300,300i,400,400i,500,600,700,800" rel="stylesheet">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/main.css">
-    {% load static %}
-    <link rel="stylesheet" type = "text/css" href = "{% static 'css/animate.css' %}" />
-    <link rel="stylesheet" type = "text/css" href = "{% static 'css/main.css' %}" />
-    <script src = "{% static 'js/animate.js' %}" type = "text/javascript"></script>
-    <script src = "{% static 'js/custom.js' %}" type = "text/javascript"></script>
+
+
 </head>
 
-<body>
-    <!-- Nav-bar -->{% block content %}
-      
-   
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-        <div class="gradient"></div>
-        <!-- Container -->
-        <div class="container">
-        
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span><i class="fa fa-align-right" aria-hidden="true"></i></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index">Acceil <span class="sr-only">(current)</span></a>
-                    </li>
-                     <li class="hidden">/</li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="log">Login</a>
-                    </li> 
-                    <!-- <li class="hidden">/</li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="AV">AjoutVoitures</a>
-                    </li>
-                    <li class="hidden">/</li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="AC">AjoutClients</a>
-                    </li>
-                    <li class="hidden">/</li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="AL">AjoutLocation</a>
-                    </li>
-                    <li class="hidden">/</li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ACon">AjoutContra</a>
-                    </li> -->
-                    <li class="hidden">/</li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Afficher">Afficher</a>
-                    </li>
-                    <li class="hidden">/</li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Ajouter">Ajouter</a>
-                    </li>
-                    <li class="hidden">/</li>
-                    <li class="nav-item">
-                        <form action="{% url 'GL:search10' %}" method="get" >
-                            <input type="search" name="search" placeholder="Search">
-                            <button class="btn btn-primary" type="submit">Search</button>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- /. Container -->
-    </nav>
-    {% endblock  %}
  
-        <!-- Services-Section -->
-        <div class="services">
-            <div class="gradient"></div>
-            <!-- Container -->
-            <h1>Welcome {{user.username}}</h1>
-            <h2>{{message}}</h2>
+<!-- Services-Section -->
+<div class="services">
+    <div class="gradient"></div>
+    <!-- Container -->
+    <h1>Welcome {{user.username}}</h1>
+    <h2>{{message}}</h2>
 <div class="row row-cols-md-3 row-cols-sm-2"> 
     {% for voiture in voitures %}
      <div class="col">
@@ -97,9 +22,9 @@
                   <h5>{{voiture.immt}}
                       {{voiture.Modelle}}
                       {{voiture.Marque}}</h5>
-                      <a href="{% url 'GL:details' voiture.id %}" class="btn btn-primary">More </a>
-                      <a href="{% url 'GL:update' voiture.id %}" class="btn btn-succes">Update </a>
-                      <a href="{% url 'GL:delete' voiture.id %}" class="btn btn-danger">Delete </a>
+                      <a  href="{% url 'GL:details' voiture.id %}" class="btn btn-primary">More </a>
+                      <a  href="{% url 'GL:update' voiture.id %}" class="btn btn-success">Update </a>
+                      <a  href="{% url 'GL:delete' voiture.id %}" class="btn btn-danger">Delete </a>
   
             </div>
   
@@ -107,88 +32,11 @@
      </div>
     {% endfor %}
     </div>
-            <img src="{% static 'images/FiatLogo.png' %}" width="400">
-           <img src="{% static 'images/HyundaiLogo.png' %}" width="400"> 
-            <img src="{% static 'images/AudiLogo1.png' %}" width="400">
+            
 
-   <marquee behavior="" direction=""><h1>Bienvennue sur notre site ! </h1></marquee> 
-        <img src="{% static 'images/car-4.jpg' %}" width="400">
-        <img src="{% static 'images/car-5.jpg' %}" width="400"> 
-        <img src="{% static 'images/car-6.jpg' %}" width="400">
-        <img src="{% static 'images/car7.jpg' %}" width="400">
-        <img src="{% static 'images/car8.jpg' %}" width="400"> 
-        <img src="{% static 'images/car-10.jpg' %}" width="400">
-        <img src="{% static 'images/car-11.jpg' %}" width="400">
-        <img src="{% static 'images/car-12.jpg' %}" width="400">
-        <img src="{% static 'images/car-10.jpg' %}" alt="">
+    
 
-                                    
 
-    <!-- Subscribe-Section -->
-    <section class="subscribe">
-        <!-- Container -->
-        <div class="container">
-            <div class="main-content" data-aos="fade-up" data-aos-duration="500">
-              </div>
-                    <div class="col-lg-6 col-md-12">
-                    
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /. Container -->
-    </section>
-
-    <!-- Footer -->
-    <footer class="page-footer">
-        <div class="gradient"></div>
-        <!-- Footer Links -->
-        <!-- Container -->
-        <div class="container">
-
-            <!-- Grid row-->
-            <div class="row text-center d-flex justify-content-center">
-
-                <!-- Grid column -->
-                <div class="col-md-12">
-                    <ul>
-                        <li><a href="index.html">Acceil</a></li>
-                        <li> <a  href="AV">AjoutVoitures</a></li>
-                        <li><a href="AC">AjoutClients</a></li>
-                        <li>  <a href="AL">AjoutLocation</a></li>
-                        <li>  <a href="ACon">AjoutContra</a></li>
-                        <li> <a href="Afficher">Afficher</a></li>
-                    </ul>
-                </div>
-                <!-- Grid column -->
-
-            </div>
-            <!-- Grid row-->
-
-            <!-- Footer Links -->
-            <div class="row text-center">
-                <!-- Copyright -->
-                <div class="col-md-12 footer-copyright">
-                    <p>© 2022, All Rights Reserved. Designed by
-                               </div>
-                <!-- Copyright -->
-            </div>
-
-            <!-- Grid row-->
-            <div class="row d-flex text-center justify-content-center">
-
-                <!-- Grid column -->
-                <div class="col-md-8 col-12">
-                    <a href="index.html"><img src="{% static 'images/car-3.jpg' %}" width="400" alt="footer-logo"></a>
-                </div>
-                <!-- Grid column -->
-
-            </div>
-            <!-- Grid row-->
-        </div>
-        <!-- /. Container -->
-    </footer>
-    <!-- Footer -->
 
 
     <!-- Return to Top -->
@@ -202,7 +50,4 @@
     <!-- Custom JavaScript -->
     <script src="js/animate.js"></script>
     <script src="js/custom.js"></script>
-
-</body>
-
-</html>
+{% endblock body %}

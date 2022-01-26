@@ -1,15 +1,16 @@
-<header style="background-color: aqua;">
-	<Marquee ><h1 style="color: black;">Bienvenue ! </h1></marquee></header>
-	<div style=" display: grid; color: cadetblue; font-size: larger;">
-<h1>Location Management </h1>
+{% extends 'base.html' %}
+{% block body %} 
+	<div style=" display: grid; color: forestgreen; font-size: larger;">
+ <h1>Location Management </h1>
 <form method = "POST" class = "post-form">
 	<fieldset><legend>Location informations</legend>
 {% csrf_token %}
 {{ form.as_p }}
 <button type = "submit" class = "save btn">Valider</button>
+<button type = "reset" class = " btn btn-primary">Modify</button>
+
 </form>
 </div>
-<button type = "submit" class = "save btn"><a href="index">Sortir</a></button>
 
 {% comment %} <table class="table" border = 1 bordercolor="black" width = "600" style = "border-collapse: collapse;">
 	<thead>
@@ -34,3 +35,4 @@
 	</tbody>
 	
 </table> {% endcomment %}
+{% endblock body %} 

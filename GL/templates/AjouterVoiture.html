@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
+{% block body %}
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,10 +7,8 @@
 	
 </head>
 
-<body style=" background-color: ;  font-size: larger" >
-	<header style="background-color: aqua;">
-<Marquee ><h1 style="color: black;">Bienvenue ! </h1></marquee></header>
-<div style=" display:grid ; color: cadetblue; font-size: larger;">
+	
+<div style=" display:grid ; color: forestgreen; font-size: larger;">
 <h1>New Car </h1>
 <!-- {{form}} -->
  <form enctype = "multipart/form-data" method = "post">
@@ -19,7 +17,6 @@
 {{ form.as_p }}</fieldset> 
 <button type = "submit" class = "btn btn-primary">New Car</button>
 <button type = "reset" class = " btn btn-primary">Modify</button>
-<button type = "submit" class = "save btn"><a href="index">Out</a></button>
 </form> 
 </div>
 
@@ -39,6 +36,4 @@
 			{% endfor %}
 	</tbody>
 	
-</table> -->
-</body>
-</html>
+</table> --> {% endblock body %}

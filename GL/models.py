@@ -10,7 +10,7 @@ class Voiture(models.Model):
     Modelle = models.CharField(max_length=15)
     Marque = models.CharField(max_length=25)
     Couleur = models.CharField(max_length=30)
-    photo = models.FileField( upload_to = "Photos")
+    photo = models.FileField( upload_to = "Photos" )
     disponible = models.BooleanField()
 
     def __str__(self):

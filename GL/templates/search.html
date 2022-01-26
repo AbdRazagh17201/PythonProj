@@ -1,5 +1,42 @@
 {% extends 'base.html' %}
 {% block title %} Search results{% endblock title %}
 {% block body %}
-<h1 class="text-center">Results</h1>
-{% endblock  body %}
+<h1 class="text-center">Results:</h1>
+<!-- Services-Section -->
+<div class="services">
+    <div class="gradient"></div>
+    <!-- Container -->
+    <h1>Welcome {{user.username}}</h1>
+    <h2>{{message}}</h2>
+<div class="row row-cols-md-3 row-cols-sm-2"> 
+    {% for voiture in voitures %}
+     <div class="col">
+        <div class="custom-card card mb-3 shadow" style="width: 40ch;" >
+            <img src="{{voiture.photo.url}}" alt="">
+            <div class="card-body"> 
+                  <h5>{{voiture.immt}}
+                      {{voiture.Modelle}}
+                      {{voiture.Marque}}</h5>
+                      <a  href="{% url 'GL:details' voiture.id %}" class="btn btn-primary">More </a>
+                      <a  href="{% url 'GL:update' voiture.id %}" class="btn btn-success">Update </a>
+                      <a  href="{% url 'GL:delete' voiture.id %}" class="btn btn-danger">Delete </a>
+  
+            </div>
+  
+        </div>
+     </div>
+    {% endfor %}
+    </div>
+        
+    <!-- Return to Top -->
+    <a href="javascript:" id="return-to-top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/animate.js"></script>
+    <script src="js/custom.js"></script>
+{% endblock body %}

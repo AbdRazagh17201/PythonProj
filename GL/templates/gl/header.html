@@ -1,0 +1,43 @@
+
+    <style>
+        .navbar{
+            background-image: linear-gradient(to left,white, green);
+            font-style: italic;
+            font-size: larger;
+            font-weight: 1000;
+        }
+    
+        
+    </style>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index">Acceil</a>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+           <li class="hidden"></li>
+          <li class="nav-item">
+              <a class="nav-link" href="log">Login</a>
+          </li> 
+          <li class="hidden"></li>
+          <li class="nav-item">
+              <a class="nav-link" href="Afficher">Afficher</a>
+          </li>
+          <li class="hidden"></li>
+          <li class="nav-item">
+              <a class="nav-link" href="Ajouter">Ajouter</a>
+          </li>
+          <li class="hidden"></li>
+          <li class="nav-item">
+              <form action="{% url 'GL:search' %}" method="get" class="d-flex ml-3" >
+                  <input type="search" name="search" placeholder="Search" class="form-control me-2">
+                  <button class="btn btn-outLine-light ml-2" type="submit">Search</button>
+              </form>
+          </li>
+      </ul>
+
+      </div>
+    </div>
+  </nav>
