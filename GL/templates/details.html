@@ -2,20 +2,20 @@
 {% block body %} {% endcomment %}
 <body style="background-color:floralwhite;">
 
-	<div style=" display: grid; color: cadetblue; font-size: larger;">
-		<fieldset><legend>	<h1 style="color: cadetblue;"><i> Toutes les infos du voiture</i></h1></legend>
-		<div class="card">
-			<img src = "{{voitures.photo.url }}" class="card-img-top" width="50%" >
+	<div style=" display: grid; color: green; font-size: larger;">
+		<h1><i> Toutes les infos du voiture</i></h1>
+		<div class="custom-card card mb-3 shadow" style="width: 100ch;" >
+			<img src = "{{voitures.photo.url }}" class="card-img-top" width="70%" weight = "10%" >
 			<div class="card-body">
 		
-			<h2><b><i>Immt: {{ voitures.immt }}  || 
-				Modelle: {{voitures.Modelle }}  ||
-				Marque: {{voitures.Marque }}   ||
-				Couleur: {{voitures.Couleur }}   ||
+			<h2><b><i>Immt: {{ voitures.immt }} 
+				Modelle: {{voitures.Modelle }}  
+				Marque: {{voitures.Marque }}   
+				Couleur: {{voitures.Couleur }} 
 				Disponible: {{voitures.disponible }} </i></b></h2>
-		
 			</div>
-		</div></fieldset>
+			</div>
+		</div>
 		{% comment %} <div class="card-footer">
 			<a href="{% url 'GL:update' voiture.id %}" class="btn btn-succes">Update </a>
 			<a href="{% url 'GL:delete' voiture.id %}" class="btn btn-danger">Delete </a>

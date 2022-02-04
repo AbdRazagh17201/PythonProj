@@ -108,18 +108,28 @@ def index(request):
     return render(request , 'index.html',context)
 
 @login_required
-def details(request,voiture_id):
-    voitures = Voiture.objects.get(pk=voiture_id)
-    #msg = "Les donnees est ici :immt {}. Modelle {}. Marque {} .Couleur {}. Disponible {}".format( voitures.immt,voitures.Modelle,voitures.Marque,voitures.Couleur,voitures.disponible )
-    # Context = {
-    #     'voitures_immt' : voitures.immt,
-    #     'voitures_Modelle' : voitures.Modelle,
-    #     'voitures_Marque' : voitures.Marque,
-    #     'voitures_Couleur' : voitures.Couleur,
-    #     'voitures_disponible' : voitures.disponible,
-    #     'voitures_photo' : voitures.photo
+def details(request,id):
+    voitures = Voiture.objects.get(pk=id)
+    # clients = Client.objects.get(pk=id)
+    # contras = Contrat.objects.get(pk=id)
+    # locations = Location.objects.get(pk=id)
+    # #msg = "Les donnees est ici :immt {}. Modelle {}. Marque {} .Couleur {}. Disponible {}".format( voitures.immt,voitures.Modelle,voitures.Marque,voitures.Couleur,voitures.disponible )
+    # # Context = {
+    # #     'voitures_immt' : voitures.immt,
+    # #     'voitures_Modelle' : voitures.Modelle,
+    # #     'voitures_Marque' : voitures.Marque,
+    # #     'voitures_Couleur' : voitures.Couleur,
+    # #     'voitures_disponible' : voitures.disponible,
+    # #     'voitures_photo' : voitures.photo
+    # # }
+    # # return HttpResponse(Context)
+    # context = { 
+    #     'voitures': voitures,
+    #     'clients': clients,
+    #     'contras': contras,
+    #     'locations': locations
+
     # }
-    # return HttpResponse(Context)
     return render(request , 'details.html', {'voitures':voitures})
 
 @login_required  
@@ -128,14 +138,16 @@ def search(request):
     voitures = Voiture.objects.filter(Q(immt__icontains=search) |
                                      Q(Modelle__icontains =search) |
                                      Q(Marque__icontains =search)  |
-                                     Q(Couleur__icontains =search) |
-                                     Q(photo__icontains=search) |
-                                     Q(disponible__icontains =search))
+                                     Q(Couleur__icontains =search))
+    # clients = Client.objects.filter(Q(user=search) |
+    #                                  Q(Numero_Permis =search) |
+    #                                  Q(Adresse =search))
     voitures_number = voitures.count()
     message = f'Il y a {voitures_number} Voitures :'
     context = { 
         'voitures': voitures,
         'message': message,
+        # 'clients': clients
 
     }
     return render(request , 'search.html',context)

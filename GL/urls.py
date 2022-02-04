@@ -10,7 +10,7 @@ urlpatterns = [
     path('Afficher',views.Affiche),
     path('AL',views.AjoutLocat),
     path('ACon',views.AjoutContra),
-    path('<int:voiture_id>',views.details,name='details'),
+    path('<int:id>',views.details,name='details'),
     path('search',views.search,name='search'),
     path('Ajouter',views.Ajouter,name='Ajout'),
     path('update/<int:id>',views.update,name='update'),
