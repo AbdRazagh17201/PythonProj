@@ -38,18 +38,22 @@
     </div>
 	<hr style = "width: 1340px ;height: 20px; color: green">
 	<h1>Les Clients</h1>
+	<h2>{{message1}}</h2>
 	<div class="row row-cols-md-3 row-cols-sm-2"> 
 		{% for ele in dataclients %}
 		<div class="col">
-			<div class="custom-card card mb-3 shadow" style="width: 30ch;" >
+			<div class="custom-card card mb-3 shadow" style="width: 31ch;" >
 				{% load static %}
 				<img src="{% static 'images/logo3.jfif' %}" width = "">
 				<div class="card-body">  
-					  <h3><i>{{ele.user}}
-						  {{ele.Numero_Permis}}
-						  {{ele.Adresse}}
-						  {{ele.Telephon}}</i></h3>
-				
+					  <h3><i>{{ele.NumClient}}
+						  {{ele.NomClient}}
+						  {{ele.Adresse}}</i></h3>     
+				   <a  href="{% url 'GL:details1' ele.id %}" class="btn btn-primary">More </a>
+				   <a  href="{% url 'GL:update1' ele.id %}" class="btn btn-success">Update </a>
+				   <a  href="{% url 'GL:delete1' ele.id %}" class="btn btn-danger">Delete </a>
+  
+  
 				</div>
 	  
 			</div>
@@ -59,6 +63,7 @@
 
 		<hr style = "width: 1340px ;height: 20px; color: green">
 		<h1>Les Locations</h1>
+		<h2>{{message2}}</h2>
 		<div class="row row-cols-md-3 row-cols-sm-2"> 
 			{% for ele in datalocate %}
 			<div class="col">
@@ -67,10 +72,13 @@
 					<img src="{% static 'images/logoloc2.jfif' %}" width = "">
 					<div class="card-body">  
 						<h3><i>{{ele.NumLocat}}
-							  {{ele.DateLocat}}
-							  {{ele.dureeLocat}}
 							  {{ele.Locataire}}
-							  {{ele.voiture}} </i></h3></div>
+							  {{ele.voiture}} </i></h3>
+				  <a  href="{% url 'GL:details2' ele.id %}" class="btn btn-primary">More </a>
+				  <a  href="{% url 'GL:update2' ele.id %}" class="btn btn-success">Update </a>
+				  <a  href="{% url 'GL:delete2' ele.id %}" class="btn btn-danger">Delete </a>
+  
+							</div>
 				</div>
 			 </div>
 			{% endfor %}
@@ -78,21 +86,22 @@
 
 			<hr style = "width: 1340px ;height: 20px; color: green">
 			<h1>Les Contras</h1>
+			<h2>{{message3}}</h2>
 			<div class="row row-cols-md-3 row-cols-sm-2"> 
 				{% for ele in datacontra %}
 				<div class="col">
-					<div class="custom-card card mb-3 shadow" style="width: 50ch;" >
+					<div class="custom-card card mb-3 shadow" style="width: 40ch;" >
 						{% load static %}
 						<img src="{% static 'images/logocont2.jfif' %}" width = "">
 						<div class="card-body">  
-							<h4><i>NumContr: {{ele.NumContr}}<br></i></h4>
-							<h4 class ="color"><i>DateContr: {{ele.DateContr}}<br>
-								  DateDeb: {{ele.DateDeb}}<br>
-								  DateFin: {{ele.DateFin}}<br></i></h4>
-						<h4><i>   Voiture: {{ele.voiture}}<br>
-								  Client: {{ele.client}}<br>
-								  KM: {{ele.Km_Parcours}}<br>
-								  Tarif: {{ele.Tarif_Par_jour}} </i></h4>
+							<h4><i>{{ele.NumContr}}
+								  {{ele.voiture}}
+								   {{ele.client}}
+								 </i></h4>
+					  	<a  href="{% url 'GL:details3' ele.id %}" class="btn btn-primary">More </a>
+						<a  href="{% url 'GL:update3' ele.id %}" class="btn btn-success">Update </a>
+						<a  href="{% url 'GL:delete3' ele.id %}" class="btn btn-danger">Delete </a>
+  
 							
 						</div>
 			  

@@ -1,0 +1,30 @@
+<body style="background-color:floralwhite;">
+
+	<div style=" display: grid; color: green; font-size: larger;">
+	<fieldset>
+       <legend> <h1><i> Toutes les infos du client</i></h1></legend>
+		<div class="custom-card card mb-3 shadow" style="width: 100ch;" >
+			<div class="card-body">
+				{% load static %}
+				<img src="{% static 'images/logo3.jfif' %}" width = "">
+		<table border = 2 bordercolor="black" width = "800"  style = "border-collapse: collapse">
+			<tr style="color: brown;">
+			<td><h1><b><i>NumClient</i></b></h1></td>
+			<td><h1><b><i>NomClient</i></b></h1></td>
+			<td><h1><b><i>Prenom</i></b></h1></td>
+			<td><h1><b><i>	Numero_Permis</i></b></h1></td>
+			<td><h1><b><i>Adresse</i></b></h1></td>
+            <td><h1><b><i>	Telephon</i></b></h1></td></tr>
+
+			<tr style="color: brown;">
+				<td><h1><b><i>{{ clients.NumClient }}  </i></b></h1></td>
+				<td><h1><b><i>{{ clients.NomClient }}  </i></b></h1></td>
+				<td><h1><b><i>{{ clients.Prenom }}  </i></b></h1></td>
+				<td><h1><b><i>{{clients.Numero_Permis }}   </i></b></h1></td>
+				<td><h1><b><i>{{clients.Adresse }}    </i></b></h1></td>
+				<td><h1><b><i>{{clients.Telephon }}  </i></b></h1></td></tr>
+                    </fieldset>
+		</div>
+		</div>  
+	</div>
+</body>

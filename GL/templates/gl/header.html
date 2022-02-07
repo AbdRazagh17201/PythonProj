@@ -1,10 +1,11 @@
 
     <style>
         .navbar{
-            background-image: linear-gradient(to left,white, green);
+            background-image: linear-gradient(to left,rgb(59, 18, 241), rgb(42, 64, 190));
             font-style: italic;
             font-size: larger;
             font-weight: 1000;
+            height: 7ch; 
         }
     
         
@@ -12,24 +13,21 @@
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index">Acceil</a>
+    <div class="container-fluid" >
+      <a class="navbar-brand" href="index" style="color: aliceblue;">Acceil</a>
       
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-           <li class="hidden"></li>
+       
           <li class="nav-item">
-              <a class="nav-link" href="log">Login</a>
+              <a class="nav-link" href="log" style="color: aliceblue;">Logout</a>
           </li> 
-          <li class="hidden"></li>
           <li class="nav-item">
-              <a class="nav-link" href="Afficher">Afficher</a>
+              <a class="nav-link" href="Afficher" style="color: aliceblue;">Afficher</a>
           </li>
-          <li class="hidden"></li>
           <li class="nav-item">
-              <a class="nav-link" href="Ajouter">Ajouter</a>
+              <a class="nav-link" href="Ajouter" style="color: aliceblue;">Ajouter</a>
           </li>
-          <li class="hidden"></li>
           <li class="nav-item">
               <form action="{% url 'GL:search' %}" method="get" class="d-flex ml-3" >
                   <input type="search" name="search" placeholder="Search" class="form-control me-2">

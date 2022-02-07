@@ -11,7 +11,7 @@ class VoitureForm(ModelForm):
 class ClientForm(ModelForm):
     class Meta:
         model = Client
-        fields = ['user','Numero_Permis','Adresse','Telephon']
+        fields = '__all__'
 class LocatForm(ModelForm):
     class Meta:
         model = Location

@@ -1,0 +1,29 @@
+<body style="background-color:floralwhite;">
+
+	<div style=" display: grid; color: green; font-size: larger;">
+	<fieldset>
+       <legend> <h1><i> Toutes les infos du Location</i></h1></legend>
+		<div class="custom-card card mb-3 shadow" style="width: 100ch;" >
+			<div class="card-body">
+				{% load static %}
+				<img src="{% static 'images/logoloc2.jfif' %}" width = "">
+				
+			<table border = 2 bordercolor="black" width = "800"  style = "border-collapse: collapse">
+				<tr style="color: brown;">
+				<td><h1><b><i>NumLocat</i></b></h1></td></td>
+			<td><h1><b><i>DateLocat</i></b></h1></td>
+			<td><h1><b><i>dureeLocat  </i></b></h1></td>
+            <td><h1><b><i>Locataire </i></b></h1></td>
+            <td><h1><b><i>voiture </i></b></h1></td></tr>
+
+			<tr style="color: green;">
+				<td><h1><b><i>{{ location.NumLocat }}  </i></b></h1></td></td>
+			<td><h1><b><i> {{location.DateLocat }}   </i></b></h1></td>
+			<td><h1><b><i> {{location.dureeLocat }}    </i></b></h1></td>
+            <td><h1><b><i>{{location.Locataire }}  </i></b></h1></td>
+            <td><h1><b><i>{{location.voiture }}  </i></b></h1></td></tr>
+              </fieldset>
+		</div>
+		</div>  
+	</div>
+</body>

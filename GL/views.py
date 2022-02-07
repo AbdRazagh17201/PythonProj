@@ -40,12 +40,12 @@ def AjoutVoi(request):
 @login_required
 def AjoutClient(request):
     if request.method == "POST":
-        form1 = ClientForm(request.POST, request.FILES)
-        if form1.is_valid():
-            form1.save()
+        form = ClientForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
     else:
-        form1 = ClientForm()
-    return render(request , 'AjoutClient.html' , {'form1' : form1 , 'dataclients':Client.objects.all()})
+        form = ClientForm()
+    return render(request , 'AjoutClient.html' , {'form' : form , 'dataclients':Client.objects.all()})
 
 @login_required
 def AjoutLocat(request):
@@ -71,9 +71,27 @@ def AjoutContra(request):
 def Affiche(request):
     voitures = Voiture.objects.all()
     clients = Client.objects.all()
-    location = Location.objects.all()
-    contra = Contrat.objects.all()
-    return render(request , 'Afficher.html' ,{'voitures':voitures ,'dataclients':clients,'datalocate':location,'datacontra':contra })
+    locations = Location.objects.all()
+    contras = Contrat.objects.all()
+    voitures_number = voitures.count()
+    message = f'Il y a {voitures_number} Voitures :'
+    Client_number = clients.count()
+    message1 = f'Il y a {Client_number} Clients :'
+    Location_number = locations.count()
+    message2 = f'Il y a {Location_number} Locations :'
+    Contra_number = contras.count()
+    message3 = f'Il y a {Contra_number} Contras :'
+    context = { 
+        'voitures': voitures,
+        'dataclients':clients,
+        'message': message,
+        'datalocate':locations,
+        'datacontra':contras,
+        'message1':message1,
+        'message2':message2,
+        'message3':message3,
+    }
+    return render(request , 'Afficher.html' ,context)
     
 # def inscrire(request):
 #     return render(request , 'home.html',{'dataadmin':Client.objects.filter(user_id = 1) })
@@ -132,6 +150,21 @@ def details(request,id):
     # }
     return render(request , 'details.html', {'voitures':voitures})
 
+
+def detailsClient(request,id):
+    clients = Client.objects.get(id=id)
+    return render(request , 'detailsClient.html', {'clients':clients})
+
+def detailsLocation(request,id):
+    location = Location.objects.get(pk=id)
+    return render(request , 'detailsLocation.html', {'location':location})
+
+def detailsContra(request,id):
+    contra = Contrat.objects.get(pk=id)
+    return render(request , 'detailsContra.html', {'contra':contra})
+
+
+
 @login_required  
 def search(request):
     search = request.GET.get('search')
@@ -171,9 +204,70 @@ def update(request,id):
     }
     return render(request , 'Update.html' , context)
 
+def updateClient(request,id):
+    client = Client.objects.get(id=id)
+    if request.method == "POST":
+        form = ClientForm(request.POST, request.FILES, instance=client)
+        if form.is_valid():
+            form.save()
+            return redirect('GL:index1')
+    else:
+        form = ClientForm(instance=client)
+    context = {
+        'form': form,
+        'client': client,
+    }
+    return render(request , 'UpdateClient.html' , context)
+
+def updateLoc(request,id):
+    location = Location.objects.get(id=id)
+    if request.method == "POST":
+        form = LocatForm(request.POST, request.FILES, instance=location)
+        if form.is_valid():
+            form.save()
+            return redirect('GL:index1')
+    else:
+        form = LocatForm(instance=location)
+    context = {
+        'form': form,
+        'location': location,
+    }
+    return render(request , 'UpdateLocation.html' , context)
+
+
+def updateCont(request,id):
+    contra = Contrat.objects.get(id=id)
+    if request.method == "POST":
+        form = ContraForm(request.POST, request.FILES, instance=contra)
+        if form.is_valid():
+            form.save()
+            return redirect('GL:index1')
+    else:
+        form = ContraForm(instance=contra)
+    context = {
+        'form': form,
+        'contra': contra,
+    }
+    return render(request , 'UpdateContra.html' , context)
+
 def delete(request,id):
     voiture = Voiture.objects.get(id=id)
     voiture.delete()
     return redirect('GL:index1')
     return render(request , 'Delete.html')
 
+def deleteClient(request,id):
+    client = Client.objects.get(id=id)
+    client.delete()
+    return redirect('GL:index1')
+   
+def deleteLoc(request,id):
+    location = Location.objects.get(id=id)
+    location.delete()
+    return redirect('GL:index1')
+   
+
+def deleteContra(request,id):
+    contra = Contrat.objects.get(id=id)
+    contra.delete()
+    return redirect('GL:index1')

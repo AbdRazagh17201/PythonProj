@@ -7,7 +7,7 @@ class ContratAff(admin.ModelAdmin):
     list_display = ('NumContr','DateContr','DateDeb','DateFin','voiture','client','Km_Parcours','Tarif_Par_jour')
 
 class ClientAff(admin.ModelAdmin):
-    list_display = ('user','Numero_Permis','Adresse','Telephon')
+    list_display = ('NumClient','NomClient','Prenom','Numero_Permis','Adresse','Telephon')
 class LocatAff(admin.ModelAdmin):
     list_display = ('NumLocat','DateLocat','dureeLocat','Locataire','voiture')
 admin.site.register(Voiture,VoitureAff)

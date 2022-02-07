@@ -1,7 +1,6 @@
 from mysite.settings import TIME_ZONE
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import User
 from django.db.models.fields import DateField
 # Create your models here.
         
@@ -17,13 +16,15 @@ class Voiture(models.Model):
         return self.immt
     
 class Client(models.Model):
-    user = models.ForeignKey(User , on_delete = models.CASCADE)
+    NumClient = models.CharField(max_length=25)
+    NomClient = models.CharField(max_length=25)
+    Prenom = models.CharField(max_length=25)
     Numero_Permis = models.CharField(max_length=200)
     Adresse = models.CharField(max_length=30)
     Telephon = models.CharField(max_length=25)
 
     def __str__(self):
-        return self.user.first_name
+        return self.NomClient
 
 class Location(models.Model):
     NumLocat = models.CharField(max_length=39)
@@ -37,9 +38,9 @@ class Location(models.Model):
 
 class Contrat(models.Model):
     NumContr = models.CharField(max_length=39)
-    DateContr = models.DateTimeField(default=timezone.now)
-    DateDeb =  models.DateTimeField(default=timezone.now)
-    DateFin =  models.DateTimeField(default=timezone.now)
+    DateContr = models.DateField()
+    DateDeb =  models.DateField()
+    DateFin =  models.DateField()
     voiture = models.ForeignKey(Voiture , on_delete = models.CASCADE)
     client = models.ForeignKey(Client , on_delete = models.CASCADE)
     Km_Parcours = models.FloatField()

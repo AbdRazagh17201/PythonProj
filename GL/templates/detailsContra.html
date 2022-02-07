@@ -1,0 +1,38 @@
+<body style="background-color:floralwhite;">
+
+	<div style=" display: grid; color: green; font-size: larger; background-color: ;">
+	<fieldset>
+       <legend> <h1><i> Toutes les infos du Contra</i></h1></legend>
+		<div class="custom-card card mb-3 shadow" style="width: 100ch;" >
+			<div class="card-body">
+				{% comment %} {% load static %}
+				<img src="{% static 'images/logocontra1.jfif' %}" style = "width: 50ch"> {% endcomment %}
+				
+		<table border = 2 bordercolor="black" width = "800"  style = "border-collapse: collapse">
+			<tr style="color: brown;">
+			<td>	<h1><b><i>NumContr</i></b></h1></td>
+			<td><h1><b><i>	DateContr</i></b></h1></td>
+			<td><h1><b><i>DateDeb </i></b></h1></td>
+			<td><h1><b><i>DateFin</i></b></h1></td>
+			<td><h1><b><i>voiture</i></b></h1></td>
+			<td><h1><b><i>client</i></b></h1></td>
+			<td><h1><b><i>Km_Parcours</i></b></h1></td>
+			<td><h1><b><i>Tarif_Par_jour</i></b></h1></td>
+			</tr>
+			<tr style="color: rgb(60, 50, 205);">
+				<td><h1><b><i>{{ contra.NumContr }}  </i></b></h1></td>
+				<td><h1><b><i>{{contra.DateContr }}   </i></b></h1></td>
+				<td><h1><b><i>{{contra.DateDeb }}    </i></b></h1></td>
+				<td><h1><b><i>{{contra.DateFin }}  </i></b></h1></td>
+				<td><h1><b><i>{{contra.voiture }}  </i></b></h1></td>
+				<td><h1><b><i>{{contra.client }}  </i></b></h1></td>
+				<td><h1><b><i>{{contra.Km_Parcours }}  </i></b></h1></td>
+				<td><h1><b><i> {{contra.Tarif_Par_jour }}  </i></b></h1></td>
+					  
+			</tr>
+		</table>
+		  </fieldset>
+		</div>
+		</div>  
+	</div>
+</body>

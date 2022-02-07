@@ -11,14 +11,15 @@
 	<header style="background-color: aqua;">
 <Marquee ><h1 style="color: black;">Bienvenue ! </h1></marquee></header>
 <div style=" display:grid ; color: cadetblue; font-size: larger;">
-<h1>Update Car </h1>
+<h1>Update Client </h1>
+{% load static %}
+<img src="{% static 'images/logo3.jfif' %}" width = "">
 <!-- {{form}} -->
  <form enctype = "multipart/form-data" method = "post">
-	<fieldset><legend>Voiture informations</legend>
+	<fieldset><legend>client informations</legend>
         {% csrf_token %}
         {{ form.as_p }}
-		
-<img src="{{voitures.photo.url}}" alt=""></fieldset> 
+<img src="{{client.photo.url}}" alt=""></fieldset> 
 <button type = "submit" class = "btn btn-primary">Update</button>
 </form> 
 </div>

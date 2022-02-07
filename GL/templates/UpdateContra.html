@@ -11,14 +11,16 @@
 	<header style="background-color: aqua;">
 <Marquee ><h1 style="color: black;">Bienvenue ! </h1></marquee></header>
 <div style=" display:grid ; color: cadetblue; font-size: larger;">
-<h1>Update Car </h1>
+<h1>Update Contra </h1>
+{% comment %} {% load static %}
+<img src="{% static 'images/logocont1.jfif' %}" width = ""> {% endcomment %}
+
 <!-- {{form}} -->
  <form enctype = "multipart/form-data" method = "post">
-	<fieldset><legend>Voiture informations</legend>
+	<fieldset><legend>Contra informations</legend>
         {% csrf_token %}
         {{ form.as_p }}
-		
-<img src="{{voitures.photo.url}}" alt=""></fieldset> 
+<img src="{{contra.photo.url}}" alt=""></fieldset> 
 <button type = "submit" class = "btn btn-primary">Update</button>
 </form> 
 </div>
